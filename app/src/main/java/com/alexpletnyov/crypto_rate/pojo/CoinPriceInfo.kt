@@ -1,9 +1,17 @@
 package com.alexpletnyov.crypto_rate.pojo
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "full_price_list")
 data class CoinPriceInfo(
+	@PrimaryKey
+	@SerializedName("FROMSYMBOL")
+	@Expose
+	private val fromSymbol: String? = null,
+
 	@SerializedName("TYPE")
 	@Expose
 	private val type: String? = null,
@@ -11,10 +19,6 @@ data class CoinPriceInfo(
 	@SerializedName("MARKET")
 	@Expose
 	private val market: String? = null,
-
-	@SerializedName("FROMSYMBOL")
-	@Expose
-	private val fromSymbol: String? = null,
 
 	@SerializedName("TOSYMBOL")
 	@Expose
