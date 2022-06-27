@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface ApiService {
 
 	@GET("top/totalvolfull")
-	fun getTopCoinINfo(
+	fun getTopCoinsInfo(
 		@Query(QUERY_PARAM_API_KEY) apiKey: String = "",
 		@Query(QUERY_PARAM_LIMIT) limit: Int = 10,
 		@Query(QUERY_PARAM_TO_SYMBOL) tSym: String = CURRENCY
