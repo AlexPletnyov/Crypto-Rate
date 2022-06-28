@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Crypto-Rate</string>
+    <string name="app_name">Crypto Rate</string>
+    <string name="symbols_template">%s / %s</string>
+    <string name="last_update_template">Last update: %s</string>
+    <string name="coin_label">Coin label</string>
+    <string name="last_update">Last update:</string>
+    <string name="min_per_day">Min per day:</string>
+    <string name="max_per_day">Max per day:</string>
+    <string name="last_market">Last market:</string>
+    <string name="price">Price:</string>
 </resources>
