@@ -1,7 +1,6 @@
-package com.alexpletnyov.crypto_rate
+package com.alexpletnyov.crypto_rate.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.alexpletnyov.crypto_rate.adapters.CoinInfoAdapter
@@ -27,7 +26,11 @@ class CoinPriceListActivity : AppCompatActivity() {
 		val adapter = CoinInfoAdapter(this)
 		adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
 			override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
-				Log.d("ON_CLICK_TEST", coinPriceInfo.fromSymbol)
+				val intent = CoinDetailActivity.newIntent(
+					this@CoinPriceListActivity,
+					coinPriceInfo.fromSymbol
+				)
+				startActivity(intent)
 			}
 		}
 		binding.rvPriceList.adapter = adapter

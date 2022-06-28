@@ -1,4 +1,4 @@
-package com.alexpletnyov.crypto_rate
+package com.alexpletnyov.crypto_rate.presentation
 
 import android.app.Application
 import android.util.Log

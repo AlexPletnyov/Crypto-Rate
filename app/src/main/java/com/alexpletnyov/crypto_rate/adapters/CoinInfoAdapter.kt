@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alexpletnyov.crypto_rate.R
 import com.alexpletnyov.crypto_rate.databinding.ItemCoinInfoBinding
 import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.utility.TimePatterns
 import com.squareup.picasso.Picasso
 
 class CoinInfoAdapter(private val context: Context) :
@@ -37,7 +38,7 @@ class CoinInfoAdapter(private val context: Context) :
 		holder.tvPrice.text = coin.price.toString()
 		holder.tvLastUpdateTime.text = String.format(
 			context.resources.getString(R.string.last_update_template),
-			coin.getFormattedTime()
+			coin.getFormattedTime(TimePatterns.TIME)
 		)
 		holder.itemView.setOnClickListener {
 			onCoinClickListener?.onCoinClick(coin)
