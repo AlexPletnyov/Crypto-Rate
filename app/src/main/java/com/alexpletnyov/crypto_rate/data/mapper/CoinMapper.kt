@@ -73,6 +73,6 @@ class CoinMapper {
 
 		const val BASE_IMAGE_URL = "https://cryptocompare.com"
 		private const val TIME_PATTERN_ONLY_TIME = "HH:mm:ss"
-		private const val DATA_AND_TIME = "yy-MM-dd HH:mm:ss"
+		private const val TIME_PATTERN_DATA_AND_TIME = "yy-MM-dd HH:mm:ss"
 	}
 }
