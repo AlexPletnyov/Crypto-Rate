@@ -1,14 +1,10 @@
-package com.alexpletnyov.crypto_rate.pojo
+package com.alexpletnyov.crypto_rate.data.network.model
 
-import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.alexpletnyov.crypto_rate.api.ApiFactory
-import com.alexpletnyov.crypto_rate.utility.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "full_price_list")
-data class CoinPriceInfo(
+data class CoinInfoDto(
 	@PrimaryKey
 	@SerializedName("FROMSYMBOL")
 	@Expose
@@ -36,7 +32,7 @@ data class CoinPriceInfo(
 
 	@SerializedName("LASTUPDATE")
 	@Expose
-	val lastUpdate: Int?,
+	val lastUpdate: Long?,
 
 	@SerializedName("LASTVOLUME")
 	@Expose
@@ -193,13 +189,4 @@ data class CoinPriceInfo(
 	@SerializedName("IMAGEURL")
 	@Expose
 	val imageurl: String?
-) {
-	fun getFormattedTime(pattern: String): String {
-		val lastUpdate: Long? = lastUpdate?.toLong()
-		return convertTimestampToTime(lastUpdate, pattern)
-	}
-
-	fun getFullImageUrl(): String {
-		return ApiFactory.BASE_IMAGE_URL + imageurl
-	}
-}
+)

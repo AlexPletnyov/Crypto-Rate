@@ -1,12 +1,11 @@
-package com.alexpletnyov.crypto_rate.database
+package com.alexpletnyov.crypto_rate.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfo
 
-@Database(entities = [CoinPriceInfo::class], version = 1, exportSchema = false)
+@Database(entities = [CoinInfoDbModel::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
 	companion object {
@@ -22,12 +21,14 @@ abstract class AppDatabase : RoomDatabase() {
 					context,
 					AppDatabase::class.java,
 					DB_NAME
-				).build()
+				)
+					.fallbackToDestructiveMigration()
+					.build()
 				db = instance
 				return instance
 			}
 		}
 	}
 
-	abstract fun coinPriceInfoDao(): CoinPriceInfoDao
+	abstract fun coinPriceInfoDao(): CoinInfoDao
 }
