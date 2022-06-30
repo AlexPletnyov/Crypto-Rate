@@ -3,17 +3,14 @@ package com.alexpletnyov.crypto_rate.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.alexpletnyov.crypto_rate.presentation.adapters.CoinInfoAdapter
 import com.alexpletnyov.crypto_rate.databinding.ActivityCoinPriceListBinding
-import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.domain.CoinInfo
+import com.alexpletnyov.crypto_rate.presentation.adapters.CoinInfoAdapter
 
 class CoinPriceListActivity : AppCompatActivity() {
 
 	private val viewModel by lazy {
-		ViewModelProvider(
-			this,
-			ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-		)[CoinViewModel::class.java]
+		ViewModelProvider(this)[CoinViewModel::class.java]
 	}
 
 	private val binding by lazy {
@@ -25,7 +22,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 		setContentView(binding.root)
 		val adapter = CoinInfoAdapter(this)
 		adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-			override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+			override fun onCoinClick(coinPriceInfo: CoinInfo) {
 				val intent = CoinDetailActivity.newIntent(
 					this@CoinPriceListActivity,
 					coinPriceInfo.fromSymbol
@@ -34,7 +31,7 @@ class CoinPriceListActivity : AppCompatActivity() {
 			}
 		}
 		binding.rvPriceList.adapter = adapter
-		viewModel.priceList.observe(this) {
+		viewModel.coinInfoList.observe(this) {
 			adapter.coinInfoList = it
 		}
 	}

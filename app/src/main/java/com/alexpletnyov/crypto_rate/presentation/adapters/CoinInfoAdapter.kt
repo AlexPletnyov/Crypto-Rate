@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alexpletnyov.crypto_rate.R
+import com.alexpletnyov.crypto_rate.data.network.ApiFactory.BASE_IMAGE_URL
 import com.alexpletnyov.crypto_rate.databinding.ItemCoinInfoBinding
-import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.domain.CoinInfo
 import com.alexpletnyov.crypto_rate.utility.TimePatterns
+import com.alexpletnyov.crypto_rate.utility.convertTimestampToTime
 import com.squareup.picasso.Picasso
 
 class CoinInfoAdapter(private val context: Context) :
@@ -15,7 +17,7 @@ class CoinInfoAdapter(private val context: Context) :
 
 	lateinit var binding: ItemCoinInfoBinding
 
-	var coinInfoList: List<CoinPriceInfo> = listOf()
+	var coinInfoList: List<CoinInfo> = listOf()
 		set(value) {
 			field = value
 			notifyDataSetChanged()
@@ -35,15 +37,16 @@ class CoinInfoAdapter(private val context: Context) :
 			coin.fromSymbol,
 			coin.toSymbol
 		)
+		val lastUpdateTemplate = context.resources.getString(R.string.last_update_template)
 		holder.tvPrice.text = coin.price.toString()
 		holder.tvLastUpdateTime.text = String.format(
-			context.resources.getString(R.string.last_update_template),
-			coin.getFormattedTime(TimePatterns.TIME)
+			lastUpdateTemplate,
+			convertTimestampToTime(coin.lastUpdate, TimePatterns.TIME)
 		)
 		holder.itemView.setOnClickListener {
 			onCoinClickListener?.onCoinClick(coin)
 		}
-		Picasso.get().load(coin.getFullImageUrl()).into(holder.ivLogoCoin)
+		Picasso.get().load(BASE_IMAGE_URL + coin.imageUrl).into(holder.ivLogoCoin)
 	}
 
 	override fun getItemCount() = coinInfoList.size
@@ -58,6 +61,6 @@ class CoinInfoAdapter(private val context: Context) :
 	}
 
 	interface OnCoinClickListener {
-		fun onCoinClick(coinPriceInfo: CoinPriceInfo)
+		fun onCoinClick(coinPriceInfo: CoinInfo)
 	}
 }

@@ -1,10 +1,10 @@
-package com.alexpletnyov.crypto_rate.data.model
+package com.alexpletnyov.crypto_rate.data.network.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class CoinInfoListOfData(
+data class CoinNamesListDto(
 	@SerializedName("Data")
 	@Expose
-	val datumList: List<Datum>?
+	val names: List<CoinNameContainerDto>?
 )

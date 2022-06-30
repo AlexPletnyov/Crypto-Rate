@@ -1,11 +1,10 @@
 package com.alexpletnyov.crypto_rate.domain
 
-data class CoinInfoEntity(
-
+data class CoinInfo(
 	val fromSymbol: String,
 	val toSymbol: String?,
 	val price: Double?,
-	val lastUpdate: Int?,
+	val lastUpdate: Long?,
 	val highDay: Double?,
 	val lowDay: Double?,
 	val lastMarket: String?,

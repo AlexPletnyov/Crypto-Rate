@@ -6,18 +6,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.alexpletnyov.crypto_rate.R
+import com.alexpletnyov.crypto_rate.data.network.ApiFactory.BASE_IMAGE_URL
 import com.alexpletnyov.crypto_rate.databinding.ActivityCoinDetailBinding
 import com.alexpletnyov.crypto_rate.utility.TimePatterns
+import com.alexpletnyov.crypto_rate.utility.convertTimestampToTime
 import com.squareup.picasso.Picasso
 
 class CoinDetailActivity : AppCompatActivity() {
 
-	private val viewModel by lazy {
-		ViewModelProvider(
-			this,
-			ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-		)[CoinViewModel::class.java]
-	}
+	private lateinit var viewModel: CoinViewModel
 
 	private val binding by lazy {
 		ActivityCoinDetailBinding.inflate(layoutInflater)
@@ -31,8 +28,9 @@ class CoinDetailActivity : AppCompatActivity() {
 			return
 		}
 		val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)!!
+		viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
 		viewModel.getDetailInfo(fromSymbol).observe(this) {
-			Picasso.get().load(it.getFullImageUrl()).into(binding.ivLogoCoin)
+			Picasso.get().load(BASE_IMAGE_URL + it.imageUrl).into(binding.ivLogoCoin)
 			binding.tvSymbols.text = String.format(
 				this.resources.getString(R.string.symbols_template),
 				it.fromSymbol,
@@ -42,7 +40,10 @@ class CoinDetailActivity : AppCompatActivity() {
 			binding.tvMinPrice.text = it.lowDay.toString()
 			binding.tvMaxPrice.text = it.highDay.toString()
 			binding.tvLastMarket.text = it.lastMarket
-			binding.tvLastUpdateTime.text = it.getFormattedTime(TimePatterns.DATA_AND_TIME)
+			binding.tvLastUpdateTime.text = convertTimestampToTime(
+				it.lastUpdate,
+				TimePatterns.DATA_AND_TIME
+			)
 		}
 	}
 
