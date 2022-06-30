@@ -2,5 +2,5 @@ package com.alexpletnyov.crypto_rate.domain
 
 class LoadDataUseCase(private val repository: CoinRepository) {
 
-	suspend operator fun invoke() = repository.loadData()
+	operator fun invoke() = repository.loadData()
 }

@@ -2,12 +2,10 @@ package com.alexpletnyov.crypto_rate.presentation
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.viewModelScope
 import com.alexpletnyov.crypto_rate.data.repository.CoinRepositoryImpl
 import com.alexpletnyov.crypto_rate.domain.GetCoinInfoListUseCase
 import com.alexpletnyov.crypto_rate.domain.GetCoinInfoUseCase
 import com.alexpletnyov.crypto_rate.domain.LoadDataUseCase
-import kotlinx.coroutines.launch
 
 class CoinViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -22,8 +20,6 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
 	fun getDetailInfo(fromSymbol: String) = getCoinInfoUseCase(fromSymbol)
 
 	init {
-		viewModelScope.launch {
-			loadDataUseCase()
-		}
+		loadDataUseCase()
 	}
 }
