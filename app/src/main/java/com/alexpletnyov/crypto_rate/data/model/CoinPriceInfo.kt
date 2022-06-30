@@ -1,8 +1,8 @@
-package com.alexpletnyov.crypto_rate.pojo
+package com.alexpletnyov.crypto_rate.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.alexpletnyov.crypto_rate.api.ApiFactory
+import com.alexpletnyov.crypto_rate.data.network.ApiFactory
 import com.alexpletnyov.crypto_rate.utility.convertTimestampToTime
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

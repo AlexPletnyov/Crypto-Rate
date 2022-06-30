@@ -4,10 +4,10 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.alexpletnyov.crypto_rate.api.ApiFactory
-import com.alexpletnyov.crypto_rate.database.AppDatabase
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfo
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfoRawData
+import com.alexpletnyov.crypto_rate.data.database.AppDatabase
+import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfoRawData
+import com.alexpletnyov.crypto_rate.data.network.ApiFactory
 import com.google.gson.Gson
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

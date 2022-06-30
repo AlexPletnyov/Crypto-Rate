@@ -1,4 +1,4 @@
-package com.alexpletnyov.crypto_rate.adapters
+package com.alexpletnyov.crypto_rate.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alexpletnyov.crypto_rate.R
 import com.alexpletnyov.crypto_rate.databinding.ItemCoinInfoBinding
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfo
 import com.alexpletnyov.crypto_rate.utility.TimePatterns
 import com.squareup.picasso.Picasso
 

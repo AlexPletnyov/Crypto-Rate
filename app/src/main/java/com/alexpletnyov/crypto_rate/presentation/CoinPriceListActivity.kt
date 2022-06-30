@@ -3,9 +3,9 @@ package com.alexpletnyov.crypto_rate.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.alexpletnyov.crypto_rate.adapters.CoinInfoAdapter
+import com.alexpletnyov.crypto_rate.presentation.adapters.CoinInfoAdapter
 import com.alexpletnyov.crypto_rate.databinding.ActivityCoinPriceListBinding
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfo
 
 class CoinPriceListActivity : AppCompatActivity() {
 

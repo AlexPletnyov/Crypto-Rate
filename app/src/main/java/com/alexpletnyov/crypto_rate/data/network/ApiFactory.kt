@@ -1,4 +1,4 @@
-package com.alexpletnyov.crypto_rate.api
+package com.alexpletnyov.crypto_rate.data.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

@@ -1,7 +1,7 @@
-package com.alexpletnyov.crypto_rate.api
+package com.alexpletnyov.crypto_rate.data.network
 
-import com.alexpletnyov.crypto_rate.pojo.CoinInfoListOfData
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfoRawData
+import com.alexpletnyov.crypto_rate.data.model.CoinInfoListOfData
+import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfoRawData
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -1,11 +1,11 @@
-package com.alexpletnyov.crypto_rate.database
+package com.alexpletnyov.crypto_rate.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.alexpletnyov.crypto_rate.pojo.CoinPriceInfo
+import com.alexpletnyov.crypto_rate.data.model.CoinPriceInfo
 
 @Dao
 interface CoinPriceInfoDao {
