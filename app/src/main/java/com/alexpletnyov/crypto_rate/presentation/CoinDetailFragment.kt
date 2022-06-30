@@ -38,7 +38,7 @@ class CoinDetailFragment : Fragment() {
 				tvMinPrice.text = it.lowDay
 				tvMaxPrice.text = it.highDay
 				tvLastMarket.text = it.lastMarket
-				tvLastUpdateTime.text = it.lastUpdate
+				tvLastUpdateTime.text = it.lastUpdateDataTime
 				Picasso.get().load(it.imageUrl).into(ivLogoCoin)
 				tvSymbols.text = String.format(
 					this@CoinDetailFragment.resources.getString(R.string.symbols_template),
