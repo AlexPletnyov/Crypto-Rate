@@ -2,10 +2,6 @@ package com.alexpletnyov.crypto_rate.data.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.alexpletnyov.crypto_rate.data.network.ApiFactory
-import com.alexpletnyov.crypto_rate.utility.convertTimestampToTime
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "full_price_list")
 data class CoinInfoDbModel(
@@ -17,5 +13,5 @@ data class CoinInfoDbModel(
 	val highDay: Double?,
 	val lowDay: Double?,
 	val lastMarket: String?,
-	val imageUrl: String?
+	val imageUrl: String
 )
